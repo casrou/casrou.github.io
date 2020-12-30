@@ -5,7 +5,7 @@ title: Raspberry Pi Setup
 
 A step-by-step guide for setting up Deluge, Plex, etc. on the Raspberry Pi 4.
 
-![https://deluge-torrent.org/](https://deluge-torrent.org/images/droplet.png)
+![https://deluge-torrent.org/]({{ site.baseurl }}/images/moviestarr.jpg)
 
 ## Headless
 Setup a headless Raspian Lite installation.
@@ -34,4 +34,8 @@ network={
 ssid="<Name of your wireless LAN>"
 psk="<Password for your wireless LAN>"
 }
+```
+## Installation
+```
+sudo apt get update
 ```
