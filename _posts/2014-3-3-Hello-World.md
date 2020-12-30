@@ -23,14 +23,13 @@ On windows: Right click in SD card folder -> New -> Text File -> Rename to `ssh`
 ### (Wifi)
 [Prepare wifi](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md)
 
-Add `wpa_supplicant.conf` file to SD card. For me it looks like:
-```
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=DK
+Add `wpa_supplicant.conf` file to SD card. For Denmark use the country code `DK`:
 
-network={
- ssid="<Name of your wireless LAN>"
- psk="<Password for your wireless LAN>"
-}
-```
+    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+    update_config=1
+    country=DK
+
+    network={
+    ssid="<Name of your wireless LAN>"
+    psk="<Password for your wireless LAN>"
+    }
