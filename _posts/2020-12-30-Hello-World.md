@@ -25,7 +25,7 @@ On windows: Right click in SD card folder -> New -> Text File -> Rename to `ssh`
 
 Add `wpa_supplicant.conf` file to SD card. For Denmark use the country code `DK`:
 
-```apacheconf
+```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 country=DK
