@@ -59,6 +59,7 @@ Then do the following:
 ### VPN Client (PIA)
 [Instructions](https://dotslashnotes.wordpress.com/2013/08/05/how-to-set-up-a-vpn-private-internet-access-in-raspberry-pi/)
 
+Test if it works:
 - `sudo openvpn --daemon --config denmark.ovpn`
 - `ping google.com`
 
@@ -75,3 +76,31 @@ Save the file and restart:
 ```
 sudo service dhcpcd restart
 ```
+
+Connect OpenVPN on startup: https://www.ivpn.net/knowledgebase/linux/linux-autostart-openvpn-in-systemd-ubuntu/
+
+Check torrent ip:
+https://torguard.net/checkmytorrentipaddress.php
+
+### NFS
+For deluge to download to a (Synology) NFS network drive do the following:
+- Controlpanel -> Shared folders
+- Right click folder -> Edit
+- Permissions
+    - Give _guest_ read/write permissions
+- NFS permissions
+    - Add new entry
+    - Use IP of pi
+    - Read/write
+    - Squash all users to guest
+    - Check asynchronous
+    - Check access to subfolders
+
+Now, to allow the pi to change permissions etc., do the following:
+- File station
+- Right click folder -> Properties -> Permissions
+- Give _guest_ administration permissions (Full control)
+
+### Plex
+[Instructions](https://pimylifeup.com/raspberry-pi-plex-server/)
+
