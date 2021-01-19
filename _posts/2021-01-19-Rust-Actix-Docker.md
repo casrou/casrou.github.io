@@ -29,33 +29,21 @@ This was simply because my installed version of rust was outdated. I fixed this 
 ### Docker
 To run my application as a docker image, I used the [Start a Rust instance running your app](https://hub.docker.com/_/rust) section from the official rust image on Docker Hub.
 
-Attempting to run the docker image after building using the command `docker run -it --rm --name actix-hello-world-app actix-hello-world`, I was met with the following error:
+Attempting to run the docker image after building with the command `docker run -it --rm --name actix-hello-world-app actix-hello-world`, I was met with the following error:
 
 ```
 docker: Error response from daemon: OCI runtime create failed: container_linux.go:370: starting container process caused: exec: "myapp": executable file not found in $PATH: unknown.
 ```
 This was fixed by changing the version of rust and the name _myapp_ to _actix-hello-world_. My updated `Dockerfile` then looked like this:
 
-```
-FROM rust:1.49.0
-
-WORKDIR /usr/src/actix-hello-world
-COPY . .
-
-RUN cargo install --path .
-
-CMD ["actix-hello-world"]
-```
+{% gist 20d444854192df9f7cdd04f52c9451d4 %}
 
 After succesfully running my actix-web application on Docker, I wanted to access one of the endpoints from outside Docker.
 Naturally, I published the specified port with the `-p` parameter, which gave me the following run command:
 
 `docker run -it -p 8080:8080 --rm --name actix-hello-world-app actix-hello-world`
 
-Unfortunately, when accessing _http://localhost:8080/_, Chrome gave me an *ERR_EMPTY_RESPONSE* response. From [this answer](https://stackoverflow.com/a/46203897/9549916) on StackOverflow, I changed the binding address inside `main.rs` from _127.0.0.1:8080_ to _0.0.0.0:8080_, re-built the application and ran it again, which fixed the problem and Chrome now succesfully showed `Hello World`.
-
-## Relevant files
+Unfortunately, when accessing _http://localhost:8080/_, Chrome gave me an *ERR_EMPTY_RESPONSE* response. From [this answer](https://stackoverflow.com/a/46203897/9549916) on StackOverflow, I changed the binding address inside `main.rs` from _127.0.0.1:8080_ to _0.0.0.0:8080_, re-built the application and ran it again, which fixed the problem and Chrome now succesfully showed _Hello World_. My updated `main.rs` file now looked like this:
 
 {% gist 0a2a55b489160a8f26178b7eb7e85aee %}
 
-{% gist 20d444854192df9f7cdd04f52c9451d4 %}
