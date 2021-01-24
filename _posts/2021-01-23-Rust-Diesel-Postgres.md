@@ -166,7 +166,7 @@ Create the file `src/bin/show_posts.rs`:
 Show all posts with `cargo run --bin show_posts`.
 
 To also delete posts, we create the file `delete_post.rs`:
-{% gist 01a84daab31211dd7040ec28477b3cb4}
+{% gist 01a84daab31211dd7040ec28477b3cb4 %}
 
 Delete a post by its title by running `cargo run --bin delete_post "Example Title"`. Your output should look like this:
 ```
