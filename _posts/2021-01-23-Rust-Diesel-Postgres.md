@@ -8,7 +8,7 @@ Setup a minimal database connection from rust using [Diesel](http://diesel.rs/) 
 If you run into any errors, check the "Errors" section at the end.
 
 ## Diesel
-We follow the ["Getting Started" guide](http://diesel.rs/guides/getting-started/) from the diesel website.
+I'll follow the ["Getting Started" guide](http://diesel.rs/guides/getting-started/) from the diesel website.
 
 ```
 cargo new --lib diesel_demo
