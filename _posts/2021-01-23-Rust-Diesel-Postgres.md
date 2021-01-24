@@ -161,7 +161,7 @@ Published post Example Title
 ```
 
 Create the file `src/bin/show_posts.rs`:
-{% gist c41b624430466303fbbdd07f363f7e71}
+{% gist c41b624430466303fbbdd07f363f7e71 %}
 
 Show all posts with `cargo run --bin show_posts`.
 
